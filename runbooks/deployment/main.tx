@@ -1,0 +1,15 @@
+################################################################
+# Manage anchor-vault-tut deployment through Crypto Infrastructure as Code
+################################################################
+
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+    network_id = input.network_id
+}
+
+action "deploy_anchor_vault_tut" "svm::deploy_program" {
+    description = "Deploy anchor_vault_tut program"
+    program = svm::get_program_from_anchor_project("anchor_vault_tut") 
+    authority = signer.authority
+    payer = signer.payer
+}

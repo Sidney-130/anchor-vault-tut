@@ -1,0 +1,19 @@
+---
+name: anchor-vault-tut
+id: anchor-vault-tut
+runbooks:
+  - name: deployment
+    description: Deploy programs
+    location: runbooks/deployment
+environments:
+  localnet:
+      network_id: localnet
+      rpc_api_url: http://127.0.0.1:8899
+      payer_keypair_json: /home/janey19/projects/solana-starter/ts/turbin3-wallet.json
+      authority_keypair_json: /home/janey19/projects/solana-starter/ts/turbin3-wallet.json
+  devnet:
+      network_id: devnet
+      rpc_api_url: https://api.devnet.solana.com
+      payer_keypair_json: /home/janey19/projects/solana-starter/ts/turbin3-wallet.json
+      authority_keypair_json: /home/janey19/projects/solana-starter/ts/turbin3-wallet.json
+

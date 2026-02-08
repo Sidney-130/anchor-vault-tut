@@ -22,7 +22,7 @@ pub struct Initialize<'info> {
     #[account(
     init,
     payer= user,
-    seeds =[b"state", user.key()as_ref()],
+    seeds = [b"state", user.key().as_ref()],
     bump,
     space = VaultState::DISCRIMINATOR.len() + VaultState::INIT_SPACE,
     )]
@@ -31,7 +31,7 @@ pub vault_state: Account<'info, VaultState>,
 
 #[account(
     mut,
-    seeds = [b"vault", vault_state.key()as_ref()],
+    seeds = [b"vault", vault_state.key().as_ref()],
     bump
 )]
 pub  vault: SystemAccount<'info>,
@@ -67,7 +67,7 @@ pub struct Deposit<'info> {
     #[account(mut)]
    pub user: Signer<'info>,
     #[account( 
-    seeds =[b"state", user.key()as_ref()],
+    seeds = [b"state", user.key().as_ref()],
     bump = vault_state.state_bump,   
     )]
 
@@ -75,7 +75,7 @@ pub vault_state: Account<'info, VaultState>,
 
 #[account(
     mut,
-    seeds = [b"vault", vault_state.key()as_ref()],
+    seeds = [b"vault", vault_state.key().as_ref()],
     bump = vault_state.vault_bump,
 )]
 pub  vault: SystemAccount<'info>,
